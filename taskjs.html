@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task JS</title>
+        <style>
+           *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f8cdda, #4e68d3);    
+           }
+            h1, h2 {
+             text-align: center;
+             color: #333;
+           }
+        </style>
+    </head>
+    <body>
+        <h1>JavaScript Tasks</h1>
+        <h2>Rokayya Aly</h2>
+        <script>
+            //1
+          let arrOne = ["C", "D", "X"];
+          let arrTwo = ["A", "B", "Z"];
+          finalArr = arrOne.concat(arrTwo).sort().reverse();   // fi kaman .sort w .concat
+
+          console.log(finalArr); // ["Z", "X", "D", "C", "B", "A"]
+
+            //2
+          let needle = "JS";
+          let haystack = ["PHP", "JS", "Python"];
+          let isFound = haystack.includes(needle); // fi kaman .indexOf 
+          console.log(isFound);
+
+            //3
+            function multiply(...args) {  // ...args bnhot ay number of parameters
+                return args.reduce((acc, curr) => {
+                    if (typeof curr === 'number') {
+                        return acc * Math.round(curr);
+                    }
+                    return acc;
+                }, 1);
+            }
+          console.log(multiply(1, 2, 3.5, 4.2, "5", "hello", 6)); // should return 192
+
+           //4
+        let mix = [1, 2, 3, "H", 4, "a", "c", "k", "e", 5, "r"];
+
+        let word = "";
+        mix.forEach(item => {
+            if (typeof item === 'string') {
+                word += item;
+            }
+        });
+        console.log(word); // Hacker
+
+        //5
+        let nums = [2, 12, 11, 5, 10, 1, 99];
+
+        let target = nums.reduce((acc, curr) => {
+            if (curr % 2 === 0) {
+                return acc * curr;
+            } else {
+                return acc + curr;
+            }
+        }, 1);
+        console.log(target); // 500
+
+        //6
+        let a = 1;
+        let threeNums = {
+            b: 2,
+            c: 3,
+            d: 4,
+        };
+        let twoNums = {
+            e: 5,
+            f: 6,
+        };
+        // Create Your Object Here in One Line
+        let myObject = { a, ...threeNums, ...twoNums };
+        console.log(myObject); 
+
+        //7
+
+            let myFavGames = {
+        "Trinity Universe": {
+            publisher: "NIS America",
+            price: 40,
+        },
+        "Titan Quest": {
+            publisher: "THQ",
+            bestThree: {
+                one: "Immortal Throne",
+                two: "Ragnarök",
+                three: "Atlantis",
+            },
+            price: 50,
+        },
+        YS: {
+            publisher: "Falcom",
+            bestThree: {
+                one: "Oath in Felghana",
+                two: "Ark Of Napishtim",
+                three: "origin",
+            },
+            price: 40,
+        },
+    };
+    let objectLength = Object.keys(myFavGames).length;
+
+    for (let i = 0; i < objectLength; i++) {
+        console.log(`The Game Name Is ${Object.keys(myFavGames)[i]}`);
+        console.log(`The Publisher Is ${myFavGames[Object.keys(myFavGames)[i]].publisher}`);
+        console.log(`The Price Is ${myFavGames[Object.keys(myFavGames)[i]].price}`);
+
+        if ("bestThree" in myFavGames[Object.keys(myFavGames)[i]]) {
+            console.log("- Game Has Releases");
+            console.log(`First => ${myFavGames[Object.keys(myFavGames)[i]].bestThree.one}`);
+            console.log(`Second => ${myFavGames[Object.keys(myFavGames)[i]].bestThree.two}`);
+            console.log(`Third => ${myFavGames[Object.keys(myFavGames)[i]].bestThree.three}`);
+        }
+        console.log("#".repeat(20));
+    }
+    // Ouput
+
+    // "The Game Name Is Trinity Universe"
+    // "The Publisher Is NIS America"
+    // "The Price Is 40"
+    // "####################"
+    // "The Game Name Is Titan Quest"
+    // "The Publisher Is THQ"
+    // "The Price Is 50"
+    // "- Game Has Releases"
+    // "First => Immortal Throne"
+    // "Second => Ragnarök"
+    // "Third => Atlantis"
+    // "####################"
+    // "The Game Name Is YS"
+    // "The Publisher Is Falcom"
+    // "The Price Is 40"
+    // "- Game Has Releases"
+    // "First => Oath in Felghana"
+    // "Second => Ark Of Napishtim"
+    // "Third => origin"
+    // "####################"
+        </script>
+    </body>
+</html>
